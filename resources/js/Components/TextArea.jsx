@@ -21,8 +21,7 @@ export default forwardRef(function TextArea(
                 className
             }
             ref={input}
-        >
-            {value}
-        </textarea>
+            defaultValue={value}
+        ></textarea>
     );
 });

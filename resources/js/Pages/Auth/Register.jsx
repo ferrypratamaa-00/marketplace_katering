@@ -6,6 +6,13 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
 import TextArea from "@/Components/TextArea";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -113,6 +120,21 @@ export default function Register() {
                     />
 
                     <InputError message={errors.email} className="mt-2" />
+                </div>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="type" value="User Type" />
+                    <Select>
+                        <SelectTrigger className="w-full text-gray-500">
+                            <SelectValue placeholder="Select User Type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="customer">Customer</SelectItem>
+                            <SelectItem value="merchant">Merchant</SelectItem>
+                        </SelectContent>
+                    </Select>
+
+                    <InputError message={errors.type} className="mt-2" />
                 </div>
 
                 <div className="mt-4">
