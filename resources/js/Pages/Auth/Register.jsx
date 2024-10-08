@@ -65,7 +65,6 @@ export default function Register() {
                         value={data.address}
                         className="mt-1 block w-full"
                         autoComplete="address"
-                        isFocused={true}
                         onChange={(e) => setData("address", e.target.value)}
                         required
                     />
@@ -82,7 +81,6 @@ export default function Register() {
                         value={data.phone}
                         className="mt-1 block w-full"
                         autoComplete="phone"
-                        isFocused={true}
                         onChange={(e) => setData("phone", e.target.value)}
                         required
                     />
