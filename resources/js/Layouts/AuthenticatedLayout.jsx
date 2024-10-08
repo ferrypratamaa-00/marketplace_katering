@@ -34,14 +34,16 @@ export default function Authenticated({ user, header, children }) {
                                 >
                                     Menu
                                 </NavLink>
-                                <NavLink
-                                    href={route("category-menus.index")}
-                                    active={route().current(
-                                        "category-menus.index"
-                                    )}
-                                >
-                                    Category Menu
-                                </NavLink>
+                                {user.type === "merchant" && (
+                                    <NavLink
+                                        href={route("category-menus.index")}
+                                        active={route().current(
+                                            "category-menus.index"
+                                        )}
+                                    >
+                                        Category Menu
+                                    </NavLink>
+                                )}
                             </div>
                         </div>
 
