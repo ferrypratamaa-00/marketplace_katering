@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->uuid('category_menu_id')->foreign('category_menu_id')
+                  ->references('id')
+                  ->on('category_menus')
+                  ->onDelete('cascade');
             $table->string('name');
-            $table->string('address');
-            $table->string('phone');
             $table->string('description');
-            $table->enum('type',['customer', 'merchant']);
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('photo');
+            $table->decimal('price', total:10, places:2);
+
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('menus');
     }
 };
